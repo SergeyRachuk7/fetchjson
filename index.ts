@@ -1,11 +1,18 @@
 import axios from "axios";
 
-const url =  'https://jsonplaceholder.typicode.com/todos/1';
-axios.get(url).then(response =>  {
-  const todo = response.data; 
+const url =  'https://jsonplaceholder.typicode.com/todos/1';    
 
-  const ID = todo.ID;
-  const title = todo.Title;
+interface Todo {
+  id: number; 
+  title: string;
+  finshed: boolean
+}
+
+axios.get(url).then(response =>  {
+  const todo = response.data as Todo; 
+
+  const ID = todo.id;
+  const title = todo.title;
   const finshed = todo.finshed; 
 
 
